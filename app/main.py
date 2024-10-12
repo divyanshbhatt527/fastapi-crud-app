@@ -4,7 +4,6 @@ from app.routers import items, clock_in
 
 app = FastAPI()
 
-# Include routers
 app.include_router(items.router, tags=["items"])
 app.include_router(clock_in.router, tags=["clock-in"])
 
