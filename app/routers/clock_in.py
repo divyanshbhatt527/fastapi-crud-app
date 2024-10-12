@@ -1,4 +1,3 @@
-# app/routers/clock_in.py
 from fastapi import APIRouter, HTTPException
 from app.schemas import ClockInCreate, ClockInResponse
 from app.database import database, serialize_mongo
@@ -9,7 +8,7 @@ router = APIRouter()
 
 @router.post("/clock-in", response_model=ClockInResponse)
 async def create_clock_in(clock_in: ClockInCreate):
-    clock_in_data = clock_in.model_dump()  # Replaces deprecated .dict()
+    clock_in_data = clock_in.model_dump()  
     clock_in_data["insert_date"] = datetime.utcnow().isoformat()
 
     try:
@@ -56,7 +55,7 @@ async def update_clock_in(clock_in_id: str, clock_in: ClockInCreate):
 @router.get("/clock-in/filter/", response_model=list[dict])
 async def filter_clock_ins(email: str = None, location: str = None, insert_date: str = None):
     filters = {}
-    print('Entered filter_clock_ins')
+    # print('Entered filter_clock_ins')
     if email:
         filters["email"] = email
 
