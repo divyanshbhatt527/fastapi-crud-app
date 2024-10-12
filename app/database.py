@@ -1,10 +1,13 @@
 import os
 from motor.motor_asyncio import AsyncIOMotorClient
-from bson import ObjectId
+from dotenv import load_dotenv
 
-MONGO_URI = os.getenv("MONGO_URI","mongodb+srv://divyanshbhatt527:kwyb7UEdg2mUDRcS@cluster0.3u2wv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-client = AsyncIOMotorClient(MONGO_URI)
-database = client['fastapi_db']
+load_dotenv()
+
+MONGODB_URI = os.getenv("MONGODB_URI")
+
+client = AsyncIOMotorClient(MONGODB_URI)
+database = client.get_default_database()
 
 def serialize_mongo(item):
     item["id"] = str(item["_id"])
