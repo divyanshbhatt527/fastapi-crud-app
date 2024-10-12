@@ -2,6 +2,8 @@
 
 This is a FastAPI application that performs CRUD (Create, Read, Update, Delete) operations for two entities: Items and User Clock-In Records. It uses MongoDB as the database, and the application can be deployed locally.
 
+Deployed on : https://fastapi-crud-assessment.koyeb.app/
+
 
 # Setup and Running Locally
 
