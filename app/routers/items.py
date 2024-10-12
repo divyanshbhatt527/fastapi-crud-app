@@ -6,6 +6,11 @@ from datetime import datetime
 
 router = APIRouter()
 
+@router.get("/")
+async def health_check():
+    print("Health check received")
+    return {"status": "healthy"}
+
 @router.post("/items/create/", response_model=ItemResponse)
 async def create_item(item: ItemCreate):
     print('Entered create')
